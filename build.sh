@@ -3,7 +3,7 @@ set -euo pipefail
 
 # === CONFIG ===
 IMAGE_NAME="ecomm-react-app"                   # local image name
-DOCKERHUB_USER="hello85"                       # replace with your Docker Hub username
+DOCKERHUB_USER="jyotikashyap1502"                       # replace with your Docker Hub username
 DEV_TAG="${DOCKERHUB_USER}/${IMAGE_NAME}:dev-latest"
 PROD_TAG="${DOCKERHUB_USER}/${IMAGE_NAME}:prod-latest"
 BUILD_TAG="${IMAGE_NAME}:local-$(date +%Y%m%d%H%M%S)"

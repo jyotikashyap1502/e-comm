@@ -15,4 +15,4 @@ echo "✅ Deployment complete!"
 echo "🖥 Running containers:"
 docker ps
 
-echo "Visit http://localhost (or server IP) to check the application."
+echo "Visit http://localhost:3000 (or server IP) to check the application."

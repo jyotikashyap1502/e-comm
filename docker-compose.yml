@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  react-app:
+    image: ecomm-react-app     
+    container_name: ecomm-react-container
+    ports:
+      - "3000:80"             
+    restart: always         

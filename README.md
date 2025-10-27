@@ -436,5 +436,92 @@ Access permissions
    Item name: ecomm-cicd-pipeline
    Type: Pipeline
 ```
+   Click **OK**
 
+3. **General Section:**
+   - ✅ Check: **GitHub project**
+   - Project url: `https://github.com/YOUR_USERNAME/ecomm-devops-project/`
+
+4. **Build Triggers:**
+   - ✅ Check: **GitHub hook trigger for GITScm polling**
+   - ✅ Check: **Poll SCM**
+   - Schedule: `H/5 * * * *` (checks every 5 minutes as backup)
+
+5. **Pipeline Section:**
+   - Definition: **Pipeline script from SCM**
+   - SCM: **Git**
+   - Repository URL: `https://github.com/YOUR_USERNAME/ecomm-devops-project.git`
+   - Credentials: **- none -** (if public repo)
+   
+   **Branches to build:** Click "Add Branch"
+   - Branch Specifier: `*/dev`
+   - Click "Add Branch" again
+   - Branch Specifier: `*/main`
+
+   - Script Path: `Jenkinsfile`
+
+6. **Save**
+
+
+
+## **STEP 8: Setup GitHub Webhook**
+
+```
+1. **Go to your GitHub repository** in browser
+
+2. **Settings → Webhooks → Add webhook**
+
+3. **Configure:**
+```
+   Payload URL: http://JENKINS_EC2_PUBLIC_IP:8080/github-webhook/
+   Content type: application/json
+   Secret: (leave empty)
+   SSL verification: Disable (since we're using HTTP)
+   
+   Which events would you like to trigger this webhook?
+   ● Just the push event
+   
+   ✅ Active
+Add webhook
+Test it: GitHub will send a test ping - check if you get a green checkmark
+
+# On your local machine
+cd path/to/e-comm
+
+# Make a small change
+echo "# Jenkins webhook test" >> README.md
+
+# Commit and push to dev branch
+git checkout dev
+git add README.md
+git commit -m "Test: Jenkins webhook trigger"
+git push origin dev
+
+# Watch Jenkins - it should automatically start building!
+
+
+Go to Jenkins and check if a new build started automatically. This proves the webhook is working.
+
+
+
+
+
+##  **What Should Happen When You Push Code:**
+
+```
+Step 1: You push code to GitHub (dev branch)
+   ↓
+Step 2: GitHub sends webhook to Jenkins
+   ↓
+Step 3: Jenkins receives notification
+   ↓
+Step 4: Jenkins automatically starts building
+   ↓
+Step 5: Checks out code from dev branch
+   ↓
+Step 6: Builds Docker image
+   ↓
+Step 7: Pushes to jyotikashyap1502/ecomm-react-app:dev
+   ↓
+Step 8: Build completes ✅
  

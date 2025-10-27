@@ -1,5 +1,5 @@
 # Use official NGINX image
-FROM nginx:alpine
+FROM --platform=linux/amd64 nginx:alpine
 
 # Copy build files to NGINX html folder
 COPY devops-build/build /usr/share/nginx/html

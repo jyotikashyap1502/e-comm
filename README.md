@@ -423,8 +423,18 @@ Docker Hub will ask for:
 Access permissions
 → Choose between Read-only, Read, Write, Delete, etc.
 ```
+## STEP 6: Update Your Jenkinsfile
 
+## **STEP 7: Create Jenkins Pipeline Job**
 
+**In Jenkins Web UI:**
 
+1. **Click:** New Item
+
+2. **Enter:**
+```
+   Item name: ecomm-cicd-pipeline
+   Type: Pipeline
+```
 
  

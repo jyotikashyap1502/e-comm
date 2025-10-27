@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_USERNAME = 'jyotikashyap1502'
         IMAGE_NAME = 'ecomm-react-app'
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
+        DOCKERHUB_CREDENTIALS = credentials('jenkins-token-pat')
     }
     
     stages {

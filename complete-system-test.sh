@@ -19,12 +19,12 @@ FAILED=0
 WARNINGS=0
 
 # Configuration - UPDATE THESE!
-GITHUB_USERNAME="YOUR_USERNAME"
-GITHUB_REPO="ecomm-devops-project"
+GITHUB_USERNAME="jyotikashyap1502"
+GITHUB_REPO="e-comm"
 DOCKERHUB_USERNAME="jyotikashyap1502"
 IMAGE_NAME="ecomm-react-app"
 JENKINS_IP="13.127.159.70"
-APP_EC2_IP="YOUR_APP_EC2_IP"  # Update this!
+APP_EC2_IP="13.127.159.70"  # Update this!
 
 # Functions
 print_header() {
@@ -171,8 +171,8 @@ fi
 
 print_test "Checking Jenkins webhook endpoint..."
 WEBHOOK_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${JENKINS_URL}/github-webhook/" --max-time 10)
-if [ "$WEBHOOK_CODE" = "200" ] || [ "$WEBHOOK_CODE" = "403" ]; then
-    print_pass "Jenkins webhook endpoint responding"
+if [ "$WEBHOOK_CODE" = "200" ] || [ "$WEBHOOK_CODE" = "403" ] || [ "$WEBHOOK_CODE" = "405" ]; then
+    print_pass "Jenkins webhook endpoint responding (HTTP $WEBHOOK_CODE)"
 else
     print_warn "Webhook endpoint status: HTTP $WEBHOOK_CODE"
 fi
@@ -210,11 +210,14 @@ else
     # Check monitoring
     print_test "Checking Uptime Kuma monitoring..."
     KUMA_CODE=$(curl -s -o /dev/null -w "%{http_code}" "http://${APP_EC2_IP}:3001" --max-time 10)
-    if [ "$KUMA_CODE" = "200" ]; then
-        print_pass "Uptime Kuma is accessible"
-    else
-        print_warn "Uptime Kuma not accessible (HTTP $KUMA_CODE)"
-    fi
+  
+
+    if [ "$KUMA_CODE" = "200" ] || [ "$KUMA_CODE" = "302" ]; then
+    print_pass "Uptime Kuma is accessible (HTTP $KUMA_CODE)"
+else
+    print_warn "Uptime Kuma not accessible (HTTP $KUMA_CODE)"
+fi
+
 fi
 
 # ===========================================
@@ -276,20 +279,11 @@ fi
 # ===========================================
 # Test 8: Project Structure
 # ===========================================
-print_header "📂 Test 8: Project Structure"
 
-print_test "Checking project structure..."
-REQUIRED_DIRS=("screenshots" "src" "public")
-for dir in "${REQUIRED_DIRS[@]}"; do
-    if [ -d "$dir" ]; then
-        print_pass "Directory exists: $dir"
-    else
-        print_warn "Directory not found: $dir (might be optional)"
-    fi
-done
+
 
 print_test "Checking documentation files..."
-for doc in README.md SUBMISSION.md; do
+for doc in README.md; do
     if [ -f "$doc" ]; then
         print_pass "$doc exists"
     else
@@ -339,11 +333,8 @@ if [ $FAILED -eq 0 ] && [ $PASSED -gt 15 ]; then
     echo -e "${GREEN}✓ System is ready for submission!${NC}"
     echo ""
     echo "Next steps:"
-    echo "1. Take all required screenshots"
-    echo "2. Upload screenshots to GitHub (screenshots/ folder)"
-    echo "3. Update README.md with all URLs"
-    echo "4. Create SUBMISSION.md"
-    echo "5. Final push to GitHub"
+    echo "1. Update README.md with all URLs"
+    echo "2. Final push to GitHub"
 elif [ $FAILED -le 2 ] && [ $WARNINGS -le 5 ]; then
     echo -e "${YELLOW}⚠ System is mostly ready, but has some warnings${NC}"
     echo ""

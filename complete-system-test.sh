@@ -24,7 +24,7 @@ GITHUB_REPO="e-comm"
 DOCKERHUB_USERNAME="jyotikashyap1502"
 IMAGE_NAME="ecomm-react-app"
 JENKINS_IP="13.233.118.5"
-APP_EC2_IP="13.233.118.5"  # Update this!
+APP_EC2_IP="13.233.118.5"  # Update this!a
 
 # Functions
 print_header() {

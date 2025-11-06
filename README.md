@@ -524,7 +524,7 @@ Step 6: Builds Docker image
 Step 7: Pushes to jyotikashyap1502/ecomm-react-app:dev
    ↓
 Step 8: Build completes ✅
- 
+``` 
  testing on 5th nov -v1 
 
 
@@ -556,23 +556,23 @@ All major components (GitHub, Docker Hub, Jenkins, EC2, Monitoring) were configu
 
 ---
 
-### 🖼️ Project Verification Screenshots
+###  🖼️ Project Verification Screenshots
 
 Below are the screenshots captured from each stage of the DevOps project validation.
 
 | Screenshot | Description | Status |
 |-------------|-------------|--------|
-| ![App UI](./screenshots/app-ui.png) | Application frontend deployed on EC2 |✅ Doneg |
-| ![Docker Hub](./screenshots/docker-hub.png) | Docker Hub repo showing Dev & Prod images | ✅ Done |
-| ![EC2 Console](./screenshots/ec2-console.png) | AWS EC2 instances running (App & Jenkins) | ✅ Done |
-| ![eComm CI/CD Pipeline](./screenshots/ecomm-cicd-pipeline.png) | Jenkins pipeline execution (build → test → deploy) |✅ Done |
-| ![Jenkins Login](./screenshots/jenkins-login.png) | Jenkins server login page | ✅ Done |
-| ![Security Group Config](./screenshots/sg-configs.png) | AWS EC2 Security Group inbound rules | ✅ Done |
-| ![System Test 1](./screenshots/system-test-1.png) | Local repository & GitHub verification | ✅ Done |
-| ![System Test 2](./screenshots/system-test-2.png) | Docker Hub and Jenkins checks | ✅ Done |
-| ![System Test 3](./screenshots/system-test-3.png) | Application and monitoring test | ✅ Done |
-| ![System Test 4](./screenshots/system-test-4.png) | Final summary and readiness confirmation | ✅ Done |
-| ![Uptime Kuma](./screenshots/uptime-kuma.png) | Monitoring dashboard for uptime checks | ✅ Done |
+| ![App UI](screenshot/app-ui.png) | Application frontend deployed on EC2 |✅ Doneg |
+| ![Docker Hub](screenshot/docker-hub.png) | Docker Hub repo showing Dev & Prod images | ✅ Done |
+| ![EC2 Console](screenshot/ec2-console.png) | AWS EC2 instances running (App & Jenkins) | ✅ Done |
+| ![eComm CI/CD Pipeline](screenshot/ecomm-cicd-pipeline.png) | Jenkins pipeline execution (build → test → deploy) |✅ Done |
+| ![Jenkins Login](screenshot/jenkins-login.png) | Jenkins server login page | ✅ Done |
+| ![Security Group Config](screenshot/sg-configs.png) | AWS EC2 Security Group inbound rules | ✅ Done |
+| ![System Test 1](screenshot/system-test-1.png) | Local repository & GitHub verification | ✅ Done |
+| ![System Test 2](screenshot/system-test-2.png) | Docker Hub and Jenkins checks | ✅ Done |
+| ![System Test 3](screenshot/system-test-3.png) | Application and monitoring test | ✅ Done |
+| ![System Test 4](./screenshot/system-test-4.png) | Final summary and readiness confirmation | ✅ Done |
+| ![Uptime Kuma](screenshot/uptime-kuma.png) | Monitoring dashboard for uptime checks | ✅ Done |
 
 ---
 

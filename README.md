@@ -13,7 +13,7 @@ cd path/to/e-comm
 2. Install the `serve` package globally:
 
 ```bash
-sudo npm install -g serve
+Synax
 ```
 
 3. Verify the installation:
@@ -25,7 +25,7 @@ serve -v
 4. Serve the production build:
 
 ```bash
-serve -s dist
+serve -s devops-build/build
 ```
 
 The project should now be running locally, and you can access it in your browser.
@@ -526,3 +526,90 @@ Step 7: Pushes to jyotikashyap1502/ecomm-react-app:dev
 Step 8: Build completes ✅
  
  testing on 5th nov -v1 
+
+
+
+---
+## ✅ Final System Verification & Evidence
+
+This section documents the **end-to-end verification** of the e-comm DevOps project — including infrastructure, CI/CD pipeline, monitoring, and deployment validation.  
+All major components (GitHub, Docker Hub, Jenkins, EC2, Monitoring) were configured, tested, and validated successfully.
+
+---
+
+### 🧪 System Test Summary
+
+| Test Area | Description | Status |
+|------------|-------------|--------|
+| 📁 Local Repository | Git structure, branches, and required files verified | ✅ PASS |
+| 🌐 GitHub Repository | Repository accessible and remote configured | ✅ PASS |
+| 🐳 Docker Hub | Dev and Prod tags exist and public | ✅ PASS |
+| 🔧 Jenkins Server | Accessible and webhook responding | ✅ PASS |
+| 🌍 Application Server | Application running and responding (HTTP 200) | ✅ PASS |
+| 🐋 Local Docker Daemon | Docker installed but daemon not active | ⚠ WARN |
+| 🔐 Script Permissions | Executable permissions verified | ✅ PASS |
+| ☁️ AWS EC2 Setup | Instances and SG configurations verified | ✅ PASS |
+| 📊 Monitoring | Uptime Kuma accessible | ✅ PASS |
+
+**Overall Result:**  
+✅ **Passed:** 28  ❌ **Failed:** 0  ⚠ **Warnings:** 1  📈 **Success Rate:** 96%
+
+---
+
+### 🖼️ Project Verification Screenshots
+
+Below are the screenshots captured from each stage of the DevOps project validation.
+
+| Screenshot | Description | Status |
+|-------------|-------------|--------|
+| ![App UI](./screenshots/app-ui.png) | Application frontend deployed on EC2 |✅ Doneg |
+| ![Docker Hub](./screenshots/docker-hub.png) | Docker Hub repo showing Dev & Prod images | ✅ Done |
+| ![EC2 Console](./screenshots/ec2-console.png) | AWS EC2 instances running (App & Jenkins) | ✅ Done |
+| ![eComm CI/CD Pipeline](./screenshots/ecomm-cicd-pipeline.png) | Jenkins pipeline execution (build → test → deploy) |✅ Done |
+| ![Jenkins Login](./screenshots/jenkins-login.png) | Jenkins server login page | ✅ Done |
+| ![Security Group Config](./screenshots/sg-configs.png) | AWS EC2 Security Group inbound rules | ✅ Done |
+| ![System Test 1](./screenshots/system-test-1.png) | Local repository & GitHub verification | ✅ Done |
+| ![System Test 2](./screenshots/system-test-2.png) | Docker Hub and Jenkins checks | ✅ Done |
+| ![System Test 3](./screenshots/system-test-3.png) | Application and monitoring test | ✅ Done |
+| ![System Test 4](./screenshots/system-test-4.png) | Final summary and readiness confirmation | ✅ Done |
+| ![Uptime Kuma](./screenshots/uptime-kuma.png) | Monitoring dashboard for uptime checks | ✅ Done |
+
+---
+
+### 🧾 System Test Log (CLI Summary)
+==========================================
+🚀 DevOps Project - Complete System Test
+
+📁 Local Repository Checks — ✅ PASS
+🌐 GitHub Accessibility — ✅ PASS
+🐳 Docker Hub (Dev & Prod Tags) — ✅ PASS
+🔧 Jenkins Server — ✅ PASS
+🌍 Application Server — ✅ PASS
+🐋 Local Docker Daemon — ⚠ WARN (Not running locally)
+🌐 Network & Connectivity — ✅ PASS
+🔐 Script Permissions — ✅ PASS
+
+✅ Overall: 28 Passed / 0 Failed / 1 Warning
+📊 Success Rate: 96%
+
+🎯 System Ready for Submission
+
+---
+
+### 🔗 Project URLs
+
+- **GitHub Repository:** [https://github.com/jyotikashyap1502/e-comm](https://github.com/jyotikashyap1502/e-comm)  
+- **Jenkins Dashboard:** [http://13.233.118.5:8080](http://13.233.118.5:8080)  
+- **Application:** [http://13.233.118.5](http://13.233.118.5)  
+- **Monitoring (Uptime Kuma):** [http://13.233.118.5:3001](http://13.233.118.5:3001)  
+- **Docker Hub (Dev):** [https://hub.docker.com/r/jyotikashyap1502/ecomm-react-app](https://hub.docker.com/r/jyotikashyap1502/ecomm-react-app)  
+- **Docker Hub (Prod):** [https://hub.docker.com/r/jyotikashyap1502/ecomm-react-app](https://hub.docker.com/r/jyotikashyap1502/ecomm-react-app)  
+
+---
+
+📅 **Test Completed:** *Thu Nov 6, 2025 — 12:58 PM IST*  
+👨‍💻 **Performed By:** *Jyoti Kashyap*  
+📂 **Environment:** AWS EC2 (t2.micro) — Jenkins, App, and Monitoring nodes
+
+
+
